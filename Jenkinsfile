@@ -4,15 +4,8 @@ pipeline {
   environment {
     
     WORKSPACE           = '.'
-    DBRKS_BEARER_TOKEN  = "xyz"
-    DBTOKEN             ="DBTOKEN"
-    CLUSTERID           ="1228-220746-bqqkddxs"
-    DBURL               ="https://adb-6840195589605290.10.azuredatabricks.net"
-
+    
     TESTRESULTPATH  ="./teste_results"
-    LIBRARYPATH     = "./Libraries"
-    OUTFILEPATH     = "./Validation/Output"
-    NOTEBOOKPATH    = "./Notebooks"
     WORKSPACEPATH   = "/Shared"
     DBFSPATH        = "dbfs:/FileStore/"
     BUILDPATH       = "${WORKSPACE}/Builds/${env.JOB_NAME}-${env.BUILD_NUMBER}"
@@ -26,13 +19,14 @@ pipeline {
             sh "printenv | sort"
             sh """mkdir -p "${BUILDPATH}/Workspace"
               
-              
+              #copy on builds path
               cp -r ./loginsystem ${BUILDPATH}/Workspace
     
 
               # Generate artifact
               tar -czvf ./latest_build"${env.BUILD_NUMBER}".tar.gz ${BUILDPATH}
               
+              # backup of Code
               cp ./latest_build"${env.BUILD_NUMBER}".tar.gz ${BACKUPATH}
            """
         }
@@ -43,7 +37,7 @@ pipeline {
           steps { 
                    
               sh """#!/bin/bash
-                
+                #Deployment of code on live server
                 cp -r ./loginsystem /www/wwwroot/loginsystem/
                 """
             
