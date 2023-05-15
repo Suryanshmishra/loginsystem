@@ -33,7 +33,7 @@ pipeline {
               # Generate artifact
               tar -czvf ./latest_build"${env.BUILD_NUMBER}".tar.gz ${BUILDPATH}
               
-              cp ./latest_build"${env.BUILD_NUMBER}".tar.gz ./workspace/backup
+              cp ./latest_build"${env.BUILD_NUMBER}".tar.gz ./backup
            """
         }
 
