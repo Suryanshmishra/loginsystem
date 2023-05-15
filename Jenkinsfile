@@ -29,11 +29,9 @@ pipeline {
               pwd
               cp -r ./loginsystem ${BUILDPATH}/Workspace
     
-              # Get packaged libs
-              #find ${LIBRARYPATH} -name '*.whl' | xargs -I '{}' cp '{}' ${BUILDPATH}/Libraries/python/
 
               # Generate artifact
-              #tar -czvf Builds/latest_build.tar.gz ${BUILDPATH}
+              tar -czvf Builds/latest_build.tar.gz ${BUILDPATH}
            """
         }
 
@@ -41,18 +39,12 @@ pipeline {
 
     stage('Deploy') {
           steps { 
-            withCredentials([string(credentialsId: DBTOKEN, variable: 'TOKEN')]) {        
+                   
               sh """#!/bin/bash
-                source $WORKSPACE/miniconda/etc/profile.d/conda.sh
-                conda activate mlops2
-                export PATH="$HOME/.local/bin:$PATH"
-
-
-                # Use Databricks CLI to deploy notebooks
-                databricks workspace import_dir --overwrite ${BUILDPATH}/Workspace ${WORKSPACEPATH}
-                dbfs cp -r ${BUILDPATH}/Libraries/python ${DBFSPATH}
+                
+                cp -r ./loginsystem /www/wwwroot/loginsystem/loginsystem
                 """
-            }
+            
           }
     }
   } 
