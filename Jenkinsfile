@@ -30,7 +30,7 @@ pipeline {
               cp -r ./loginsystem ${BUILDPATH}/Workspace
     
               # Get packaged libs
-              find ${LIBRARYPATH} -name '*.whl' | xargs -I '{}' cp '{}' ${BUILDPATH}/Libraries/python/
+              #find ${LIBRARYPATH} -name '*.whl' | xargs -I '{}' cp '{}' ${BUILDPATH}/Libraries/python/
 
               # Generate artifact
               #tar -czvf Builds/latest_build.tar.gz ${BUILDPATH}
