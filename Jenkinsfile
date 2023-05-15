@@ -65,5 +65,15 @@ pipeline {
             
           }
     }
+     stage('Automation testing') {
+          steps { 
+                   
+              sh """#!/bin/bash
+                #Build stage 
+                echo "automation can be done using selenium script  "
+                """
+            
+          }
+    }
   } 
 }
