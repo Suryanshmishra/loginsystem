@@ -38,7 +38,7 @@ pipeline {
     
     stage('Build Artifact') {
         steps {
-            sh "printenv | sort"
+           
             sh """mkdir -p "${BUILDPATH}/Workspace"
               
               #copy on builds path
@@ -60,7 +60,7 @@ pipeline {
                    
               sh """#!/bin/bash
                 #Deployment of code on live server
-                
+                pwd
                 cp -r ./loginsystem /www/wwwroot/loginystem.com/loginsystem/
                 
                 #cp -r ./loginsystem /www/wwwroot/loginsystem/
