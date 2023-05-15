@@ -23,11 +23,11 @@ pipeline {
     
     stage('Build Artifact') {
         steps {
+            sh "printenv | sort"
             sh """mkdir -p "${BUILDPATH}/Workspace"
-              mkdir -p "${BUILDPATH}/Libraries/python"
-              mkdir -p "${BUILDPATH}/Validation/Output"
               
-              cp ${WORKSPACE}/Workspace/*.ipynb ${BUILDPATH}/Workspace
+              
+              cp -r ${WORKSPACE}/Workspace/*.ipynb ${BUILDPATH}/Workspace
     
               # Get packaged libs
               find ${LIBRARYPATH} -name '*.whl' | xargs -I '{}' cp '{}' ${BUILDPATH}/Libraries/python/
