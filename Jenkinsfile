@@ -13,6 +13,28 @@ pipeline {
   }
 
   stages {
+    stage('Build') {
+          steps { 
+                   
+              sh """#!/bin/bash
+                #Build stage 
+                echo "This project No Need any Build like Java and Dot net"
+                """
+            
+          }
+    }
+    
+    
+     stage('Unit test') {
+          steps { 
+                   
+              sh """#!/bin/bash
+                #Unit test stage 
+                echo "If any unit test realated to project we can put cases here"
+                """
+            
+          }
+    }
     
     stage('Build Artifact') {
         steps {
