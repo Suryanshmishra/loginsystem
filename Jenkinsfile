@@ -27,7 +27,7 @@ pipeline {
             sh """mkdir -p "${BUILDPATH}/Workspace"
               
               
-              cp -r ${WORKSPACE}/Workspace/* ${BUILDPATH}/Workspace
+              cp -r ${WORKSPACE}/workspace/* ${BUILDPATH}/Workspace
     
               # Get packaged libs
               find ${LIBRARYPATH} -name '*.whl' | xargs -I '{}' cp '{}' ${BUILDPATH}/Libraries/python/
