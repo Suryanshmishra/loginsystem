@@ -26,7 +26,7 @@ pipeline {
             sh "printenv | sort"
             sh """mkdir -p "${BUILDPATH}/Workspace"
               
-              
+              pwd
               cp -r ${WORKSPACE}/workspace/* ${BUILDPATH}/Workspace
     
               # Get packaged libs
