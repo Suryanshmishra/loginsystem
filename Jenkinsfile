@@ -31,7 +31,7 @@ pipeline {
     
 
               # Generate artifact
-              tar -czvf Builds/latest_build.tar.gz ${BUILDPATH}
+              tar -czvf Builds/latest_build"${env.BUILD_NUMBER}".tar.gz ${BUILDPATH}
            """
         }
 
