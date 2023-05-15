@@ -24,7 +24,7 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">   User Registration & Login and User Management System With admin panel V2.0</h1>
+                        <h1 class="mt-4">   User Registration & Login and User Management System With central admin panel V3.0</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.php">Home</a></li>
               
