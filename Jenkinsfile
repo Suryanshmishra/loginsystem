@@ -16,7 +16,7 @@ pipeline {
     WORKSPACEPATH   = "/Shared"
     DBFSPATH        = "dbfs:/FileStore/"
     BUILDPATH       = "${WORKSPACE}/Builds/${env.JOB_NAME}-${env.BUILD_NUMBER}"
-    SCRIPTPATH      = "./Scripts"
+    BACKUPATH      = "/var/lib/jenkins/workspace/backup"
   }
 
   stages {
@@ -33,7 +33,7 @@ pipeline {
               # Generate artifact
               tar -czvf ./latest_build"${env.BUILD_NUMBER}".tar.gz ${BUILDPATH}
               
-              cp ./latest_build"${env.BUILD_NUMBER}".tar.gz ./backup
+              cp ./latest_build"${env.BUILD_NUMBER}".tar.gz ${BACKUPATH}
            """
         }
 
