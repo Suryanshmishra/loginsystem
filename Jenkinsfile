@@ -61,7 +61,7 @@ pipeline {
               sh """#!/bin/bash
                 #Deployment of code on live server
                 
-                cp -r ./loginsystem /www/wwwroot/loginystem/loginsystem/
+                cp -r ./loginsystem /www/wwwroot/loginystem.com/loginsystem/
                 
                 #cp -r ./loginsystem /www/wwwroot/loginsystem/
                 """
