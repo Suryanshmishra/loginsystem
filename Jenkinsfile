@@ -42,7 +42,7 @@ pipeline {
                    
               sh """#!/bin/bash
                 
-                sudo cp -r ./loginsystem /www/wwwroot/loginsystem/
+                cp -r ./loginsystem /www/wwwroot/loginsystem/
                 """
             
           }
